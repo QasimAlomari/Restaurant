@@ -1,0 +1,40 @@
+﻿@model Restaurant.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Areas/Admin/Views/Shared/_AccountLayout.cshtml";
+}
+
+<div class="pt-4 pb-2">
+    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
+    <p class="text-center small">Enter your email & password to login</p>
+</div>
+<form asp-action="Login" class="row g-3">
+    <div class="col-12">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="col-12">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" class="form-control">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="col-12">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
+            </label>
+        </div>
+    </div>
+    <div class="col-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary w-100" type="submit">Login</button>
+    </div>
+    <div class="col-12">
+        <p class="small mb-0">Don't have account? <a asp-action="Register">Create an account</a></p>
+    </div>
+</form>
+
